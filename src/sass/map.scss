@@ -1,0 +1,59 @@
+// -----------------------
+// South america map Styles
+// -----------------------
+
+
+.contentMap {
+  display: inline-block;
+  font-family: "dingleberry-solid";
+
+}
+
+.mapBg {
+  background : #29A9B0;
+  height: inherit;
+}
+
+.map {
+  display: inline-block;
+}
+
+
+#equateurtext:hover ~ .Equateur#equateur{
+
+
+  fill : $rouge !important;
+  cursor: pointer;
+}
+
+// country
+
+#chile:hover {
+  fill: $rouge !important;
+  cursor: pointer;
+}
+
+#boli:hover {
+  fill: $rouge !important;
+  cursor: pointer;
+}
+
+#perou:hover  {
+  fill: $rouge !important;
+  cursor: pointer;
+}
+
+#equateur:hover {
+  fill: $rouge !important;
+  cursor: pointer;
+}
+
+#repdom:hover {
+  fill: $rouge !important;
+  cursor: pointer;
+}
+
+#cuba:hover  {
+  fill: $rouge !important;
+  cursor: pointer;
+}
