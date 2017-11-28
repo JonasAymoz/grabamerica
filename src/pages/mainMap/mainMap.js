@@ -1,12 +1,39 @@
 import React, { Component } from 'react';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 class MainMap extends Component {
 
+
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
+    };
+
+    constructor() {
+        super();
+        this.state = {
+            hasBeenChile : false
+        }
+    }
+
+    componentDidMount(){
+        const { cookies } = this.props;
+        this.setState ({
+            hasBeenChile : cookies.get('hasBeenChile') || false
+        });
+    }
+
+    onchileClick() {
+        const { cookies } = this.props;
+        cookies.set("hasBeenChile", true);
+        console.log('chile click');
+    }
+
     render (){
         return (
-            <div className="mapBg">
+            <div className="mapBg d-flex">
 
-                <div className="map">
+                <div className="map col">
                     <svg version="1.2" baseProfile="tiny" id="Sea"
                          x="0px" y="0px" width="595.281px" height="841.89px" viewBox="0 0 595.281 841.89" >
 
@@ -4433,7 +4460,7 @@ class MainMap extends Component {
                             </g>
                             <g>
                                 <g>
-                                    <path fill="none" stroke="#CBE5E9" stroke-width="0.25" stroke-miterlimit="10" d="M510.333,659.003"/>
+                                    <path fill="none" stroke="#CBE5E9" strokeWidth="0.25" strokeMiterlimit="10" d="M510.333,659.003"/>
                                 </g>
                             </g>
                             <g>
@@ -5927,9 +5954,9 @@ class MainMap extends Component {
                                     </g>
                                 </g>
                             </g>
-                            <path fill="none" stroke="#2AAAB1" stroke-width="14" stroke-miterlimit="10" d="M219.001,548.001c0.586-1.963,0.697-3.963,0.333-6
+                            <path fill="none" stroke="#2AAAB1" strokeWidth="14" strokeMiterlimit="10" d="M219.001,548.001c0.586-1.963,0.697-3.963,0.333-6
             "/>
-                            <path fill="none" stroke="#2AAAB1" stroke-width="14" stroke-miterlimit="10" d="M104.335,156.002
+                            <path fill="none" stroke="#2AAAB1" strokeWidth="14" strokeMiterlimit="10" d="M104.335,156.002
             c1.178-0.431,2.315-0.948,3.412-1.552c-4.31,6.326-16.234,18.2-8.136,25.201c4.015,3.472,5.525,4.319,10.086,1.984
             c10.266-5.255,28.488-13.071,36.972-0.596c8.867-5.096,13.651-15.218,21.593-21.637c9.423-7.616,21.489-10.49,33.419-11.083
             c10.657-0.53,21.819,1.822,31.461,6.017c5.438,2.366,11.338,4.117,17.215,4.95c4.449,0.63,8.731-1.117,13.175-1.284
@@ -5945,7 +5972,7 @@ class MainMap extends Component {
             c-2.975,3.395-5.305,6.668-5.736,11.024c-0.729,7.332,1.264,14.93-1.082,22.016c-3.375,10.195-6.76,17.84-13.215,26.6
             c-3.457,4.693-7.469,9.23-10.578,14.152c-2.42,3.832-4.248,7.773-7.102,11.34c-4.645,5.805-9.176,11.385-15.449,15.469
             c-5.578,3.629-8.301,4.99-11.908-1.219"/>
-                            <path fill="none" stroke="#2AAAB1" stroke-width="14" stroke-miterlimit="10" d="M145.668,55.001
+                            <path fill="none" stroke="#2AAAB1" strokeWidth="14" strokeMiterlimit="10" d="M145.668,55.001
             c0.419,0.814,0.643,1.734,1.018,2.572c-8.309-7.834-20.095-8.295-30.797-7.146c-6.072,0.653-12.316,2.634-18.089,4.532
             c-3.203,1.053-6.895,2.114-9.688,4.073c-2.77,1.941-3.094,4.027-6.375,5.27c-4.344,1.646-10.448,3.438-13.757,6.792
             c-3.688,3.736-6.266,14.613-1.594,18.546c7.315,6.158,20.324,4.481,28.713,2.373c4.646-1.168,8.51-3.983,13.312-4.604
@@ -5957,10 +5984,10 @@ class MainMap extends Component {
             c-1.595-2.842-0.105-2.736-3.312-3.044c-4.412-0.422-5.717,2.262-9.643-0.753c-4.63-3.557-5.688-6.936-11.876-7.72
             c-14.134-1.791-19.57,9.395-29.762,16.315c-11.395,7.738-24.224,0.388-34.257-5.824c-2.55-1.579-5.721-3.889-7.642-6.317
             c0.499-0.634,0.898-1.329,1.197-2.084"/>
-                            <path fill="none" stroke="#2AAAB1" stroke-width="14" stroke-miterlimit="10" d="M100.668,151.668
+                            <path fill="none" stroke="#2AAAB1" strokeWidth="14" strokeMiterlimit="10" d="M100.668,151.668
             c-0.003-6.44,0.439-28.41-12.615-28.408c-7.134,0.001-17.627,5.074-23.57,8.738c-5.648,3.483-11.386,7.51-16.534,11.687
             c-1.192,0.967-10.067,9.727-9.281,9.983"/>
-                            <path fill="none" stroke="#2AAAB1" stroke-width="14" stroke-miterlimit="10" d="M52,146c0.594,0.007,0.615-0.004,0.062-0.033
+                            <path fill="none" stroke="#2AAAB1" strokeWidth="14" strokeMiterlimit="10" d="M52,146c0.594,0.007,0.615-0.004,0.062-0.033
             c-6.853-0.474-12.247,11.897-13.743,17.146c-1.511,5.303-0.252,7.582,4.652,9.887c6.368,2.993,7.676,7.75,8.962,14.537
             c1.406,7.424,4.929,11.328,11.699,14.806c2.299,1.181,4.709,1.899,6.95,3.417c3.186,2.158,3.014,4.369,5.019,7.291
             c3.767,5.489,16.862,2.751,22.893,3.203c4.961,0.372,9.862,0.404,14.839,0.416c2.35,0.005,8.369-1.707,10.33-0.698
@@ -7421,16 +7448,16 @@ class MainMap extends Component {
                             </g>
                             <g>
                                 <g>
-                                    <path fill="none" stroke="#CBE5E9" stroke-miterlimit="10" d="M76.667,73.333"/>
+                                    <path fill="none" stroke="#CBE5E9" strokeMiterlimit="10" d="M76.667,73.333"/>
                                 </g>
                             </g>
                             <g>
                                 <g>
-                                    <path fill="none" stroke="#CBE5E9" stroke-miterlimit="10" d="M113.333,64"/>
+                                    <path fill="none" stroke="#CBE5E9" strokeMiterlimit="10" d="M113.333,64"/>
                                 </g>
                             </g>
                         </g>
-                        <path fill="#30B3C2" stroke="#2AAAB1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M100.67,174.861
+                        <path fill="#30B3C2" stroke="#2AAAB1" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="M100.67,174.861
         c2.664-3.528-9.336-59.528-9.336-59.528l-58.667,45.5L60,208.797c0,0,47.337,12.238,50.002,11.721s15.436,8.319,15.436,8.319
         L100,266.001c0,0-21,32-18.5,34.666s7.943,27.18,7.943,27.18s11.132,26.403,17.223,23.488s23.629,28.729,25.7,32.821
         c2.071,4.092,41.522,40.857,42.967,44.019s35.309,34.178,35.353,36.354c0.044,2.174-12.085,66.217-12.28,68.121
@@ -7445,7 +7472,7 @@ class MainMap extends Component {
         c0,0-25.783-27.706-27.068-30.373c-1.287-2.667-27.229-8.991-27.229-8.991s-38.721-3.676-40.722-3.009s-44.364-6.297-48.78-5.088
         S151.656,166,151.656,166s-55.77,12.633-52.046,13.65c3.723,1.017,5.056-4.789,5.056-4.789"/>
                         <g>
-                            <path fill="none" stroke="#30B3C2" stroke-width="40" stroke-linecap="round" stroke-miterlimit="10" d="M80,77.333
+                            <path fill="none" stroke="#30B3C2" strokeWidth="40" strokeLinecap="round" strokeMiterlimit="10" d="M80,77.333
             c7.94,0.124,15.901-4.491,23.876-5.497c9.811-1.238,13.516,5.579,22.392,9.709c11.148,5.188,21.333,6.292,32.603,9.886
             c5.725,1.826,9.359,4.764,15.65,5.232c9.019,0.673,18.359,0.002,27.401,0.002c13.727,0,27.95-0.38,41.412,1.333"/>
                         </g>
@@ -10557,7 +10584,7 @@ class MainMap extends Component {
                                 </g>
                             </g>
                         </g>
-                        <g className="Chile">
+                        <g className={(this.state.hasBeenChile? "visited" : "" ) + " Chile"} onClick={()=> this.onchileClick()}>
                             <path id="chile" fill="#569ED6" d="M219.26,441.833l0.036-2.75l5.725-10.908l6.467,16.305l4.513,3.52v12l8.334,19H250l-1.664,11.916
             l-9.667,5.543l1.333,17.271l1.334,4.635l-4.667,1.65l-7.667,21.658l2.873,7.664l-5.873,12.33l5.873,16.42l2.562,11.412l-4.769,9.5
             l2.205,4.666L227,612v8l4.625,9.334l-4.414,2.332l0.729,38c0,0,3.496,11,3.623,11s2.438,9,2.438,9V710l-4.248,13.666L226.211,729
@@ -13532,47 +13559,47 @@ class MainMap extends Component {
                                 </g>
                             </g>
                             <g>
-                                <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.334,103.435
+                                <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.334,103.435
                 c0.332-1.375,5.832-1.737,6.832-1.404s5.418,3.985,6.751,3.65c1.333-0.333,3.708,2.104,3.708,2.104s-1.979,4.219-1.646,2.886
                 s-12.99,0.258-12.99,0.258L134,106.404V102"/>
                                 <g>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.489,103.152
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.489,103.152
                     c0.01-0.023,0.016-0.06,0.023-0.087C134.521,103.148,134.519,103.188,134.489,103.152z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.604,102
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.604,102
                     c0.003,0.298,0.003,0.769-0.092,1.065C134.485,102.802,134.334,102.09,134.604,102z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.051,103.205l0.081-0.37
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.051,103.205l0.081-0.37
                     C134.205,103.052,134.077,103.012,134.051,103.205z"/>
-                                    <polygon fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" points="134.304,103.07 134.403,103.089
+                                    <polygon fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" points="134.304,103.07 134.403,103.089
                     134.306,103.287 			"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M147.513,109.35
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M147.513,109.35
                     c-0.04-0.042-0.063-0.089-0.045-0.149L147.513,109.35z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M148.385,109.82
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M148.385,109.82
                     c0.078,0.02,0.132,0.029,0.179,0.036C148.51,109.86,148.466,109.848,148.385,109.82z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M146.715,109.4l0.155-0.017
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M146.715,109.4l0.155-0.017
                     C146.821,109.398,146.767,109.406,146.715,109.4z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M137.443,110.535L137.443,110.535
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M137.443,110.535L137.443,110.535
                     c-0.021-0.165-0.026-0.303-0.03-0.396c0.134,0.073,0.046,0.242,0.03,0.394V110.535z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M151.884,109.841l-0.054-0.069
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M151.884,109.841l-0.054-0.069
                     C151.88,109.751,151.92,109.749,151.884,109.841z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M148.511,111.154
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M148.511,111.154
                     c0-0.046,0.009-0.08,0.025-0.104c0.014,0.008,0.024,0.014,0.039,0.022L148.511,111.154z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M146.107,109.58l-0.008,0.009l-0.127-0.044
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M146.107,109.58l-0.008,0.009l-0.127-0.044
                     C146.039,109.526,146.082,109.539,146.107,109.58z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M152.721,108.375
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M152.721,108.375
                     c0.089-0.083,0.19-0.167,0.311-0.245C152.894,108.333,152.769,108.415,152.721,108.375z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M148.586,109.856l0.001,0.003
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M148.586,109.856l0.001,0.003
                     c-0.006-0.001-0.018-0.003-0.023-0.004C148.574,109.855,148.577,109.855,148.586,109.856z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M147.339,111.04
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M147.339,111.04
                     c0.063,0.014,0.116,0.025,0.19,0.041C147.449,111.1,147.382,111.077,147.339,111.04z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M137.443,110.535l0.062,0.053
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M137.443,110.535l0.062,0.053
                     C137.461,110.592,137.446,110.569,137.443,110.535z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.668,104.148
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.668,104.148
                     c0.001,0.12-0.055,0.148-0.113,0.17C134.582,104.252,134.617,104.194,134.668,104.148z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M135.127,103.489
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M135.127,103.489
                     c-0.005,0-0.014,0.015-0.011,0.014C135.111,103.495,135.116,103.491,135.127,103.489z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M139.097,102.679
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M139.097,102.679
                     c0.022,0.017,0.045,0.035,0.062,0.061C139.123,102.761,139.1,102.726,139.097,102.679z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M143.648,102.07
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M143.648,102.07
                     c-0.314-0.075-0.444-0.448-0.669-0.61l0.023,0.134l-0.188-0.222l-0.073,0.121c-0.173-0.152-0.424-0.281-0.661-0.408
                     c-0.307-0.164-0.61-0.261-0.735-0.396l0.043,0.241c-0.05-0.027-0.604-0.263-0.604-0.263l0.319,0.188
                     c-0.663-0.039-1.477-0.18-1.607-0.175l0.053,0.083c-0.09,0.046-0.164-0.008-0.26-0.031l0.079,0.123
@@ -13716,44 +13743,44 @@ class MainMap extends Component {
                     c0.15-0.083-0.121-0.173-0.087-0.283C146.739,104.402,146.974,104.645,146.856,104.619z M140.261,101.031
                     c-0.346,0.144-0.287-0.158-0.498-0.179C140.039,100.717,140.004,100.991,140.261,101.031z M145.404,103.264l0.032-0.013
                     l-0.167-0.207l-0.032,0.013L145.404,103.264z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M139.853,102.519
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M139.853,102.519
                     c-0.076,0.021-0.126,0.019-0.168,0.009C139.738,102.519,139.794,102.514,139.853,102.519z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M150.285,108.894
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M150.285,108.894
                     c0.031,0.023,0.037,0.057,0.032,0.096C150.298,108.976,150.285,108.949,150.285,108.894z"/>
-                                    <polygon fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" points="149.922,109.404 149.91,109.424
+                                    <polygon fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" points="149.922,109.404 149.91,109.424
                     149.89,109.435 			"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.854,104.338
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.854,104.338
                     c0.182-0.135,0.03,0.13,0.031,0.239C134.884,104.468,134.756,104.427,134.854,104.338z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.551,105.192
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.551,105.192
                     c0.054-0.064,0.09-0.156,0.106-0.268C134.663,104.995,134.644,105.071,134.551,105.192z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M134.629,104.496
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M134.629,104.496
                     c0.038,0.166,0.045,0.311,0.028,0.429C134.649,104.814,134.58,104.722,134.629,104.496z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M135.152,107.281
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M135.152,107.281
                     c0.024-0.173-0.159-0.363-0.159-0.363c0.381,0.427,0.122-0.206,0.169-0.29C135.312,106.948,135.192,107.023,135.152,107.281z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M135.49,107.947
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M135.49,107.947
                     c-0.031-0.048-0.063-0.094-0.101-0.122C135.443,107.857,135.471,107.9,135.49,107.947z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M135.691,108.07
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M135.691,108.07
                     c0.079,0.18,0.006,0.305-0.031,0.431c-0.2-0.154-0.106-0.387-0.17-0.554C135.563,108.064,135.622,108.187,135.691,108.07z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M139.901,109.868
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M139.901,109.868
                     c-0.046-0.009-0.154,0.003-0.164-0.067l0.326-0.036C140.198,109.793,139.965,109.847,139.901,109.868z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M141.135,110.092
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M141.135,110.092
                     c0.261-0.013,0.109-0.182,0.245-0.153l0.007,0.241L141.135,110.092z"/>
-                                    <polygon fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" points="141.104,111.318 141.026,111.301
+                                    <polygon fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" points="141.104,111.318 141.026,111.301
                     141.114,111.302 			"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M142.368,109.743l-0.203-0.25
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M142.368,109.743l-0.203-0.25
                     C142.39,109.542,142.411,109.753,142.368,109.743z"/>
-                                    <polygon fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" points="143.351,109.484 143.19,109.413
+                                    <polygon fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" points="143.351,109.484 143.19,109.413
                     143.677,109.457 			"/>
-                                    <polygon fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" points="144.564,109.531 144.603,109.472
+                                    <polygon fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" points="144.564,109.531 144.603,109.472
                     144.938,109.52 			"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M148.61,106.205
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M148.61,106.205
                     c0.02-0.245,0.43,0.012,0.579,0.034C148.985,106.449,148.87,105.981,148.61,106.205z"/>
-                                    <path fill="none" stroke="#E5F3FC" stroke-width="0.01" stroke-miterlimit="10" d="M140.286,102.417c0,0,0.467,0.071,0.458,0.078
+                                    <path fill="none" stroke="#E5F3FC" strokeWidth="0.01" strokeMiterlimit="10" d="M140.286,102.417c0,0,0.467,0.071,0.458,0.078
                     C140.388,102.558,140.649,102.487,140.286,102.417z"/>
                                 </g>
                             </g>
                         </g>
-                        <path fill="none" stroke="#73C4EE" stroke-width="0.25" stroke-miterlimit="10" d="M223.653,410.397l-0.277-0.709l-1.386-2
+                        <path fill="none" stroke="#73C4EE" strokeWidth="0.25" strokeMiterlimit="10" d="M223.653,410.397l-0.277-0.709l-1.386-2
         c0,0,0.308-0.523,0.399-0.493c0.092,0.03,0.862,0.12,0.8-0.001c-0.062-0.122-0.369-0.737-0.369-0.737l0.831,0.092l0.247-0.431
         l0.646,0.646l1.324,0.739l0.616,0.754l0.571-0.169l0.63,0.771l0.369,0.861c0,0,0.708,0.062,0.801,0c0.093-0.062,0,0.432,0,0.432
         l0.708,0.246c0,0,0.462,0.555,0.554,0.586c0.093,0.03-0.154,0.832,0,0.861c0.154,0.031,1.017-0.093,1.109,0
@@ -13781,38 +13808,45 @@ class MainMap extends Component {
         l-0.344-0.062l0.344-0.719l0.375-0.469l-0.312-0.656h-0.719l-0.469-0.062h-0.688c0,0-0.469-0.281-0.406-0.375
         c0.063-0.095-0.062-0.416-0.062-0.416l-0.594-0.599l-0.531-0.424l-0.406,0.781l0.688,0.438l-0.812-0.196l-0.812-0.304l-0.469-0.295
         v-0.61c0,0,0.125-0.438,0.219-0.438s0.531-0.281,0.531-0.281l0.031-0.812l0.688,0.688L223.688,410.375z"/>
-                        <polygon fill="#F15C24" stroke="#2DB3C1" stroke-width="0.01" stroke-miterlimit="10" points="228.656,412.392 228.734,412.672
+                        <polygon fill="#F15C24" stroke="#2DB3C1" strokeWidth="0.01" strokeMiterlimit="10" points="228.656,412.392 228.734,412.672
         228.969,412.672 229.156,412.531 228.656,412.203 228.469,412.203 "/>
                         <polygon fill="#30B3C2" points="535,841.89 539,841.89 539,841.89 "/>
-                        <text transform="matrix(1 0 0 1 338.6675 369.0005)" font-family="'dingleberrysolid'" font-size="22.6772">Brazil</text>
-                        <text transform="matrix(1 0 0 1 97.0493 58.6226)" font-family="'dingleberrysolid'" font-size="22.6772">Cuba</text>
-                        <text transform="matrix(1 0 0 1 207.5054 71.6724)" font-family="'dingleberrysolid'" font-size="10.58">ReP </text>
-                        <text transform="matrix(1 0 0 1 193.061 84.3687)" font-family="'dingleberrysolid'" font-size="10.58">Dominicaine</text>
-                        <text transform="matrix(1 0 0 1 154.7158 370.9097)" font-family="'dingleberrysolid'" font-size="18.2567">Peru</text>
-                        <text id="equateurtext" transform="matrix(1 0 0 1 97.0493 286.8394)" font-family="'dingleberrysolid'" font-size="18.2567">Equateur</text>
-                        <text transform="matrix(1 0 0 1 191.001 556.5073)" font-family="'dingleberrysolid'" font-size="18.2567">Chili</text>
-                        <text transform="matrix(1 0 0 1 240.7856 612.1733)" font-family="'dingleberrysolid'" font-size="18.2567">Argentine</text>
-                        <text transform="matrix(1 0 0 1 304.0894 489.0923)" fill="#FFFFFF" font-family="'dingleberrysolid'" font-size="15.4161">Paraguay</text>
-                        <text transform="matrix(1 0 0 1 261.6465 428.1763)" font-family="'dingleberrysolid'" font-size="15.9126">Bolivie</text>
-                        <text transform="matrix(1 0 0 1 220.1719 412.0854)" font-family="'MyriadPro-Regular'" font-size="0.7486">P</text>
-                        <text transform="matrix(1 0 0 1 220.5591 412.0854)" font-family="'MyriadPro-Regular'" font-size="0.7486">u</text>
-                        <text transform="matrix(1 0 0 1 220.9712 412.0854)" font-family="'MyriadPro-Regular'" font-size="0.7486">n</text>
-                        <text transform="matrix(1 0 0 1 221.3867 412.0854)" font-family="'MyriadPro-Regular'" font-size="0.7486">o</text>
-                        <text transform="matrix(1 0 0 1 243.0156 415.9927)" font-family="'MyriadPro-Regular'" font-size="5.6088">L</text>
-                        <text transform="matrix(1 0 0 1 245.6631 415.9927)" font-family="'MyriadPro-Regular'" font-size="5.6088">a</text>
-                        <text transform="matrix(1 0 0 1 248.3662 415.9927)" font-family="'MyriadPro-Regular'" font-size="5.6088"> </text>
-                        <text transform="matrix(1 0 0 1 249.5552 415.9927)" font-family="'MyriadPro-Regular'" font-size="5.6088">P</text>
-                        <text transform="matrix(1 0 0 1 252.3936 415.9927)" font-family="'MyriadPro-Regular'" font-size="5.6088">a</text>
-                        <text transform="matrix(1 0 0 1 255.0967 415.9927)" font-family="'MyriadPro-Regular'" font-size="5.6088">z</text>
+                        <text transform="matrix(1 0 0 1 97.0493 58.6226)" fontFamily="'dingleberrysolid'" fontSize="22.6772">Cuba</text>
+                        <text transform="matrix(1 0 0 1 207.5054 71.6724)" fontFamily="'dingleberrysolid'" fontSize="10.58">ReP </text>
+                        <text transform="matrix(1 0 0 1 193.061 84.3687)" fontFamily="'dingleberrysolid'" fontSize="10.58">Dominicaine</text>
+                        <text transform="matrix(1 0 0 1 154.7158 370.9097)" fontFamily="'dingleberrysolid'" fontSize="18.2567">Peru</text>
+                        <text id="equateurtext" transform="matrix(1 0 0 1 55.0493 286.8394)" fontFamily="'dingleberrysolid'" fontSize="18.2567">Equateur</text>
+                        <text transform="matrix(1 0 0 1 191.001 556.5073)" fontFamily="'dingleberrysolid'" fontSize="18.2567">Chili</text>
+                        <text transform="matrix(1 0 0 1 261.6465 428.1763)" fontFamily="'dingleberrysolid'" fontSize="15.9126">Bolivie</text>
+                        <text transform="matrix(1 0 0 1 220.1719 412.0854)" fontFamily="'MyriadPro-Regular'" fontSize="0.7486">P</text>
+                        <text transform="matrix(1 0 0 1 220.5591 412.0854)" fontFamily="'MyriadPro-Regular'" fontSize="0.7486">u</text>
+                        <text transform="matrix(1 0 0 1 220.9712 412.0854)" fontFamily="'MyriadPro-Regular'" fontSize="0.7486">n</text>
+                        <text transform="matrix(1 0 0 1 221.3867 412.0854)" fontFamily="'MyriadPro-Regular'" fontSize="0.7486">o</text>
+                        <text transform="matrix(1 0 0 1 243.0156 415.9927)" fontFamily="'MyriadPro-Regular'" fontSize="5.6088">L</text>
+                        <text transform="matrix(1 0 0 1 245.6631 415.9927)" fontFamily="'MyriadPro-Regular'" fontSize="5.6088">a</text>
+                        <text transform="matrix(1 0 0 1 248.3662 415.9927)" fontFamily="'MyriadPro-Regular'" fontSize="5.6088"> </text>
+                        <text transform="matrix(1 0 0 1 249.5552 415.9927)" fontFamily="'MyriadPro-Regular'" fontSize="5.6088">P</text>
+                        <text transform="matrix(1 0 0 1 252.3936 415.9927)" fontFamily="'MyriadPro-Regular'" fontSize="5.6088">a</text>
+                        <text transform="matrix(1 0 0 1 255.0967 415.9927)" fontFamily="'MyriadPro-Regular'" fontSize="5.6088">z</text>
                     </svg>
                 </div>
-                <div className="contentMap">
-                    <h1> Ma carte du voyage </h1>
+                <div className="contentMap col">
+                    <h1 onClick={()=> this.onchileClick()}> Ma carte du voyage </h1>
                     <h5> Cliquez sur un pays pour vous y rendre !</h5>
+                        <hr/>
+                    <ul className="list-unstyled">
+                        <li className="media">
+                            <img className="d-flex mr-3" src="https://www.budgetchauffeurdrive.com.au/media/a8155fac95de93d20237bf28a264f175.png?preset=s-thumb" alt="Generic placeholder image"/>
+                            <div className="media-body">
+                                <h4 className="mt-0 mb-1">Séquence 1</h4>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         );
     }
 }
 
-export default MainMap ;
+export default withCookies(MainMap) ;
