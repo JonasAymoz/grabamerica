@@ -17,7 +17,7 @@ class Depart extends Component {
     handleFormSubmit = formSubmitEvent => {
         formSubmitEvent.preventDefault();
         if (this.state.camera && this.state.visa){
-            window.location.assign('/webdoc');
+            window.location.assign('http://webdoc.grabamerica.fr');
         }
     }
 

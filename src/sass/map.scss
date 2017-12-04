@@ -6,16 +6,33 @@
 .contentMap {
   display: inline-block;
   font-family: "dingleberry-solid";
+  overflow: scroll;
+  padding: 20px 10px 120px;
+
+  .media {
+    padding: 10px 10px;
+    text-align: left;
+  }
+  .media-body {
+    padding-top: 10px;
+  }
 
 }
 
 .mapBg {
   background : #29A9B0;
   height: inherit;
+  overflow: hidden;
 }
 
 .map {
   display: inline-block;
+}
+
+.visitedIcon {
+  position: absolute;
+  left: 89px;
+  margin-top: -10px;
 }
 
 
@@ -28,12 +45,12 @@
 
 // country
 
-#chile:hover {
+#chili:hover {
   fill: $rouge !important;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
-#boli:hover {
+#bolivie:hover {
   fill: $rouge !important;
   cursor: pointer;
 }
@@ -48,7 +65,7 @@
   cursor: pointer;
 }
 
-#repdom:hover {
+#repDom:hover {
   fill: $rouge !important;
   cursor: pointer;
 }
