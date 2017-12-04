@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
+import sequences from '../../sequences';
+import SequenceItem from './sequenceItem';
+
+
 
 class MainMap extends Component {
 
@@ -9,27 +13,33 @@ class MainMap extends Component {
         cookies: instanceOf(Cookies).isRequired
     };
 
+
     constructor() {
         super();
         this.state = {
-            hasBeenChile : false
+            hasBeenChile : false,
+            sequenceCountryList : [],
         }
     }
 
     componentDidMount(){
         const { cookies } = this.props;
+        let stringSequences = cookies.get('visitedSequences');
         this.setState ({
-            hasBeenChile : cookies.get('hasBeenChile') || false
+            visitedSequences : stringSequences? stringSequences.split(',') : [] || []
         });
     }
 
-    onchileClick() {
-        const { cookies } = this.props;
-        cookies.set("hasBeenChile", true);
-        console.log('chile click');
+    onCountryClick = (country) => {
+        this.setState({
+            sequenceCountryList : sequences[country]
+        });
+        console.log(`${country} clicked !`);
     }
 
+
     render (){
+
         return (
             <div className="mapBg d-flex">
 
@@ -7476,7 +7486,7 @@ class MainMap extends Component {
             c7.94,0.124,15.901-4.491,23.876-5.497c9.811-1.238,13.516,5.579,22.392,9.709c11.148,5.188,21.333,6.292,32.603,9.886
             c5.725,1.826,9.359,4.764,15.65,5.232c9.019,0.673,18.359,0.002,27.401,0.002c13.727,0,27.95-0.38,41.412,1.333"/>
                         </g>
-                        <g className="Perou">
+                        <g className="perou" onClick={()=> this.onCountryClick("perou")}>
                             <polygon id="perou" fill="#B0D237" points="124,315 136.074,307.134 155.287,292.116 159.5,281.597 158.668,266.001 185.346,288.049
             205.095,285.5 209.334,285.001 213.121,305.91 191.999,316.667 185.5,330.516 181,337.508 200.704,359.601 210,355 210,367
             221,369 231.75,382 224.875,404 229.438,420 218.985,439 202.993,430.333 163.663,404.667 126.994,341.5 110.001,329.198
@@ -7756,7 +7766,7 @@ class MainMap extends Component {
                                 </g>
                             </g>
                         </g>
-                        <g className="Equateur">
+                        <g className="equateur" onClick={()=> this.onCountryClick("equateur")}>
                             <polygon id="equateur" fill="#FFF200" points="112,283 112,294.997 123.501,297.333 116.543,303.001 123.942,315.011 155.266,292.137
             159.484,281.597 158.66,266.001 127.999,258.668 118.75,266.331 	"/>
                             <g>
@@ -9770,8 +9780,8 @@ class MainMap extends Component {
                                 </g>
                             </g>
                         </g>
-                        <g className="Bolivia">
-                            <path id="boli" fill="#F15C24" d="M224.873,428.134l6.541,16.324L236,448v12l8.084,18.334c0,0,4.961,2.666,5.377,0
+                        <g className="bolivie" onClick={()=> this.onCountryClick("bolivie")}>
+                            <path id="bolivie" fill="#F15C24" d="M224.873,428.134l6.541,16.324L236,448v12l8.084,18.334c0,0,4.961,2.666,5.377,0
             c0.416-2.668,7.812-10.668,7.812-10.668s11.031,3,12.364,3.334s4.351,10.037,4.684,8.854c0.333-1.186,3.016-8.854,3.016-8.854H287
             l5.336-13.084l4.873-12.791c0,0,23-0.729,23.23-1.062c0.229-0.332,7.973,4.477,7.973,4.477l4.254-14.854l-1.596-6.068l-5.07-3.943
             l1.332-7.668l-16.666-1.334l-4-22.333l-39.674-15.667l-6.341-9.667l0.984-12l-10.365-3.667l-14.729,15L221,369l10.875,13l-6.938,22
@@ -10584,8 +10594,8 @@ class MainMap extends Component {
                                 </g>
                             </g>
                         </g>
-                        <g className={(this.state.hasBeenChile? "visited" : "" ) + " Chile"} onClick={()=> this.onchileClick()}>
-                            <path id="chile" fill="#569ED6" d="M219.26,441.833l0.036-2.75l5.725-10.908l6.467,16.305l4.513,3.52v12l8.334,19H250l-1.664,11.916
+                        <g className={(this.state.hasBeenChile? "visited" : "" ) + " chili"} onClick={()=> this.onCountryClick("chili")}>
+                            <path id="chili" fill="#569ED6" d="M219.26,441.833l0.036-2.75l5.725-10.908l6.467,16.305l4.513,3.52v12l8.334,19H250l-1.664,11.916
             l-9.667,5.543l1.333,17.271l1.334,4.635l-4.667,1.65l-7.667,21.658l2.873,7.664l-5.873,12.33l5.873,16.42l2.562,11.412l-4.769,9.5
             l2.205,4.666L227,612v8l4.625,9.334l-4.414,2.332l0.729,38c0,0,3.496,11,3.623,11s2.438,9,2.438,9V710l-4.248,13.666L226.211,729
             l5.664,10H236l5.669,12.25l18,1.541c0,0,1,20.605,2,20.271c1-0.332,14.917,3.303,14.917,3.303s-31.584,0.316-30.584-0.016
@@ -12527,8 +12537,8 @@ class MainMap extends Component {
                                 </g>
                             </g>
                         </g>
-                        <g className="RepDom">
-                            <path id="repdom" fill="#569ED6" d="M219,100.11c0,0-6.5,1.723-7.5,0.723S205,102,205,102h-7l-7,5.333V90l6-1h9c0,0,5.354,3.167,6.354,3.167
+                        <g className="repDom" onClick={()=> this.onCountryClick("repDom")}>
+                            <path id="repDom" fill="#569ED6" d="M219,100.11c0,0-6.5,1.723-7.5,0.723S205,102,205,102h-7l-7,5.333V90l6-1h9c0,0,5.354,3.167,6.354,3.167
             s6.646,3.5,6.646,3.5V100.11z"/>
                             <g>
                                 <g>
@@ -12934,7 +12944,7 @@ class MainMap extends Component {
                                 </g>
                             </g>
                         </g>
-                        <g className="Cuba">
+                        <g className="cuba" onClick={()=> this.onCountryClick("cuba")}>
                             <path id="cuba" fill="#F15C24" d="M139.5,94.833c0,0,17.957-3.583,20.104-3.583s9.771-3.292,9.771-3.292l-17.688-7.979l-12.344-4.323
             l-13.339-4.329l-5.335-4.664c0,0-14.668,0-15.002-1.333S89.11,68.333,89.11,68.333L81,73v5l5-1.667L95.75,70l5.792,0.333
             L101.271,73l14.755,2l7.626,2.667l4.344-1l6.001,1.667l-1.331,6L141.332,85L145,86.333L139.5,94.833z"/>
@@ -13835,13 +13845,9 @@ class MainMap extends Component {
                     <h5> Cliquez sur un pays pour vous y rendre !</h5>
                         <hr/>
                     <ul className="list-unstyled">
-                        <li className="media">
-                            <img className="d-flex mr-3" src="https://www.budgetchauffeurdrive.com.au/media/a8155fac95de93d20237bf28a264f175.png?preset=s-thumb" alt="Generic placeholder image"/>
-                            <div className="media-body">
-                                <h4 className="mt-0 mb-1">Séquence 1</h4>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </li>
+                        {this.state.sequenceCountryList.map((sequence) =>
+                            <SequenceItem sequence={sequence} key={sequence.id} visitedSequences={this.state.visitedSequences}/>
+                        )}
                     </ul>
                 </div>
             </div>
