@@ -2,7 +2,7 @@
   "name": "grabamerica2",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://grabamerica.fr",
+  "homepage": "http://grabamerica.fr",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "node-sass-chokidar": "0.0.3",
@@ -27,5 +27,4 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
-
 }

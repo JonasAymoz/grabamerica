@@ -67,7 +67,39 @@ figure {
 
 @media screen and (max-width: 768px) {
   .fixed-bottom {
-    margin-bottom: -33px !important;
+    margin-bottom: -10px !important;
+  }
+  figcaption {
+    padding: 34px 10px 0px !important;
+    h2 {
+      font-size: 100% !important;
+    }
+    p {
+      display: none;
+    }
+  }
+  .menuToggle {
+    display: none;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@include media-breakpoint-only(lg) {
+  .fixed-bottom {
+    margin-bottom: -40px !important;
+  }
+  figcaption {
+    padding: 28px 10px 0px !important;
+  }
+}
+/* Portrait tablets and small desktops */
+@include media-breakpoint-only(xl) {
+  .fixed-bottom {
+    margin-bottom: -40px !important;
+  }
+  figcaption {
+    padding: 28px 10px 0px !important;
+
   }
 }
 
@@ -76,8 +108,8 @@ figure {
   margin-bottom: -7px;
   border-width: 1px 0 0;
   max-height : 170px;
-
 }
+
 
 
 
@@ -233,5 +265,15 @@ figcaption p {
 @include media-breakpoint-only(xs) {
   figcaption h2 {
     margin: 0px 0px;
+  }
+  figcaption:hover {
+    h2 {
+      height: 10px;
+      opacity: 1;
+      color : white;
+    }
+    p{
+      transform: translateY(0px);
+    }
   }
 }

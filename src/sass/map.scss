@@ -27,6 +27,9 @@
 
 .map {
   display: inline-block;
+  svg {
+    height : 100%;
+  }
 }
 
 .visitedIcon {
