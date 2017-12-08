@@ -13,6 +13,7 @@ import Depart from './pages/depart/depart';
 import {Route} from 'react-router-dom';
 import Menu from "./components/Menu";
 import { CookiesProvider } from 'react-cookie';
+import Fruits from "./pages/fruits/fruits";
 
 class App extends Component {
 
@@ -28,6 +29,7 @@ class App extends Component {
               <Route path="/equipe" component={Equipe} />
               <Route path="/journal" component={Journal} />
               <Route path="/depart" component={Depart} />
+              <Route path="/fruits" component={Fruits} />
 
               <Menu/>
           </CookiesProvider>
