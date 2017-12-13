@@ -28,6 +28,12 @@
   }
 }
 
+a:link, a:hover , a:visited ,a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -65,7 +71,80 @@
 .checkup {
   color: white;
 }
+// texts
 
+h1, h2 {
+  font-family: dingleberry-solid;
+}
+
+.bannerTitle {
+  position: relative;
+  z-index: 10;
+  margin-top: 40px;
+}
+
+.bannerTitle::after {
+  content: '';
+  position: absolute;
+  padding: 9px;
+  left: -28px;
+  top: -10px;
+  width: 105%;
+  height: 70px;
+  background: #d8493b;
+  -webkit-transform: skewY(2.5deg);
+  -moz-transform: skewY(2.5deg);
+  -ms-transform: skewY(2.5deg);
+  -o-transform: skewY(2.5deg);
+  transform: skewY(2.5deg);
+  -webkit-backface-visibility: hidden;
+  z-index: -2;
+}
+
+// carousel
+
+.slick-slide img {
+  display: block;
+  max-height: 75vh;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+.slick-prev {
+  left : 25px !important;
+}
+.slick-next {
+  right : 25px !important;
+}
+
+.blackBg {
+  position: absolute;
+  top: 0;
+  background: black;
+  height: 100%;
+  width: 100%;
+}
+.slick-dots {
+
+}
+.slick-dots li button:before {
+  color : $orangeDark !important;
+}
+
+.titleSlider{
+  color : white;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 20px;
+  span {
+    text-align: right;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+  }
+}
 
 // home Video
 

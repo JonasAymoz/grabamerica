@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import './css/style.css';
+import "../node_modules/slick-carousel/slick/slick.css";
+import "../node_modules/slick-carousel/slick/slick-theme.css";
+
 
 import Header from './components/Header';
 import MainMap from './pages/mainMap/mainMap';
@@ -14,6 +17,7 @@ import {Route} from 'react-router-dom';
 import Menu from "./components/Menu";
 import { CookiesProvider } from 'react-cookie';
 import Fruits from "./pages/fruits/fruits";
+import Tags from "./pages/tags/tags";
 
 class App extends Component {
 
@@ -30,6 +34,7 @@ class App extends Component {
               <Route path="/journal" component={Journal} />
               <Route path="/depart" component={Depart} />
               <Route path="/fruits" component={Fruits} />
+              <Route path="/tags" component={Tags} />
 
               <Menu/>
           </CookiesProvider>
