@@ -2,26 +2,32 @@ import React, {Component} from 'react';
 
 
 class FruitItem extends Component {
+    constructor () {
+        super();
+        this.state = {
+            displayInfo :false
+        }
+    }
 
+
+    displayInfo = () => {
+        this.setState( {
+            displayInfo : !this.state.displayInfo
+        });
+    }
 
     render() {
         return  (
-            <li className="col-md-3 col">
-                <a href="#" data-title="Azuki bean"  >
-                    <img src={this.props.imgSrc} alt="img01"/>
-                </a>
-                <div className="og-expander" style={{transition: 'height 350ms ease', height: '764px'}}>
+            <li className="col-md-2 col-sm-6 col-xs-1 col">
+                <div className="og-expander">
                     <div className="og-expander-inner"><span className="og-close"></span>
                         <div className="og-fullimg">
                             <div className="og-loading"></div>
-                            <img src={this.props.imgSrc}/>
+                            <img src={this.props.imgSrc} onClick={() => this.displayInfo()}/>
                         </div>
-                        <div className="og-details">
-                            <h3>Dandelion horseradish</h3>
-                            <p>Cabbage bamboo shoot broccoli rabe
-                            chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels
-                            sprout avocado tomato.</p>
-                            <a href="#">Visit website</a>
+                        <div className={(this.state.displayInfo? "visible " : " ") + " og-details"}>
+                            <h3>{this.props.title}</h3>
+                            <p>{this.props.desc}</p>
                         </div>
                     </div>
                 </div>
