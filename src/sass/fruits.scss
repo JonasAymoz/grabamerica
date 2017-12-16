@@ -7,12 +7,19 @@
     width: 100%;
     padding-bottom: 30px;
   }
-
+  .og-fullimg:hover {
+    cursor: pointer;
+  }
 
   .og-details {
     max-height: 0px;;
     transition: all 0.2s ease-in;
     overflow: hidden;
+
+    p {
+      font-size: 0.8em;
+    }
+
 
     &.visible {
       max-height: 250px;
