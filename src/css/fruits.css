@@ -1,0 +1,16 @@
+.og-grid {
+  margin-top: 30px;
+  margin-bottom: 90px; }
+  .og-grid li img {
+    width: 100%;
+    padding-bottom: 30px; }
+  .og-grid .og-fullimg:hover {
+    cursor: pointer; }
+  .og-grid .og-details {
+    max-height: 0px;
+    transition: all 0.2s ease-in;
+    overflow: hidden; }
+    .og-grid .og-details p {
+      font-size: 0.8em; }
+    .og-grid .og-details.visible {
+      max-height: 250px; }
