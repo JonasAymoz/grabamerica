@@ -8,13 +8,20 @@ class Projet extends Component {
                 <div className="container p-3">
                     <h1 className="bannerTitle">le projet</h1>
                     <div className="whiteBg">
-                        Lorem ipsum dolor amet woke hella shoreditch, affogato letterpress cred chambray bushwick. Offal kale chips church-key coloring book shaman dreamcatcher tilde, man bun blog mixtape austin tbh cliche. Fixie PBR&B keytar slow-carb intelligentsia etsy tbh gluten-free dreamcatcher. Prism thundercats slow-carb VHS ennui chillwave meggings dreamcatcher.
-
-                        Disrupt mumblecore prism beard cloud bread plaid chambray la croix offal live-edge. Next level austin woke YOLO vegan lo-fi. Letterpress subway tile taxidermy ugh man bun. Fingerstache chartreuse mustache, iceland actually DIY readymade tousled waistcoat bespoke humblebrag kinfolk. Polaroid food truck kitsch roof party humblebrag mumblecore letterpress palo santo hashtag pickled tumblr dreamcatcher church-key. Waistcoat subway tile godard lomo. Put a bird on it twee chia leggings dreamcatcher roof party authentic next level banh mi echo park cliche la croix ugh.
-
-                        Put a bird on it listicle banh mi, tousled subway tile hexagon adaptogen before they sold out messenger bag DIY seitan tacos tote bag stumptown hammock. Crucifix schlitz waistcoat, normcore post-ironic chillwave green juice fixie. Disrupt godard neutra taiyaki migas copper mug stumptown. Heirloom polaroid iceland, skateboard four dollar toast disrupt occupy seitan vinyl master cleanse leggings mixtape pour-over. Bespoke butcher put a bird on it live-edge deep v polaroid sartorial thundercats letterpress mustache twee cold-pressed cronut hashtag keytar.
-
-                        Typewriter coloring book af small batch synth blog forage craft beer cornhole four loko tote bag unicorn everyday carry migas. +1 90's bespoke cliche humblebrag. Kogi XOXO typewriter subway tile, fixie echo park trust fund drinking vinegar flannel copper mug 3 wolf moon 90's. Man braid tacos taxidermy vexillologist, craft beer godard heirloom photo booth banjo 3 wolf moon.
+                        Grabamerica, c’est un mélange de curiosité, d’humanité, et de cultures. <br/>
+                        <p>C’est chercher à comprendre cet état d’esprit positif, ce rythme de vie latino et cette façon de vivre, distante du modèle occidentale, chez les jeunes sud-américains.
+                        Malgré le processus de “mondialisation” dans lequel est engagée la société actuelle, nous avons pu découvrir, au cours de nos précédents voyages, que les jeunes latino-américains ont des envies et projets nouveaux,
+                            des motivations singulières mais également des problèmes et des réalités quotidiennes différentes des jeunes européens.
+                        </p>
+                        <p>
+                        Dans ces pays où l’âge médian est en moyenne de 30 ans, de nombreux jeunes se mobilisent, s’engagent et participent activement à la vie de la société. Nous aimerions donc saisir plus précisément leurs préoccupations et leurs idéaux en partageant leurs modes de vie et leurs quotidiens.
+                        Notre objectif aujourd’hui est de réaliser un web-documentaire où nous pourrons aborder et traiter ces thèmes à travers plusieurs portraits filmés. Particulièrement sensibles à la création artistique, à la réflexion et l’engagement des jeunes artistes, nous souhaitons leur donner la parole à travers notre réalisation.
+                        </p>
+                        <p>
+                        Nous essayerons d’interroger des jeunes de milieux sociaux différents (en milieu urbain ou rural), pour tenter de comprendre et capturer l’origine de cette singularité. Nos explorerons leur quotidien en traitant au fil du webdocumentaire des thèmes aussi vastes et variées que leur éducation, leur environnement, leurs familles, leurs travail , leurs sports et loisirs et bien entendu leur culture.
+                        Nous donnerons également une place importante à leurs engagements et leur vision de la société future en essayant de filmer mais aussi en participant à leurs projets, qu’ils soient professionnels ou culturels, afin d’offrir une vision des préoccupations actuelles des jeunes sud-américains.
+                        </p>
+                        <p>Précisons que nous n’avons pas la prétention d’avoir une démarche sociologique, notre réalisation sera avant tout le fruit des rencontres que nous ferons sur place retranscrit par le regard de deux jeunes occidentaux.</p>
 
 
 

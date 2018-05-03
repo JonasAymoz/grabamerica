@@ -46,7 +46,7 @@ class Depart extends Component {
                                 <input type="checkbox" onChange={() => this.onCheckboxClicked("visa")}/>
                                 <div className="control__indicator"></div>
                             </label>
-
+©©
                         </fieldset>
 
                         <button className={"btn btn-primary btn-lg btn-graba " + ((this.state.visa && this.state.camera)? "" : " disabled")} type="submit">Aller, on y va !</button>
